@@ -1,0 +1,36 @@
+{
+  "name": "Elmo3tarf - المعترف",
+  "short_name": "Elmo3tarf",
+  "description": "متجر مكياج وتجميل - تسوق أجود منتجات المكياج والعناية بالبشرة",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#E84393",
+  "orientation": "any",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/w635mvns/image/upload/v1785542699/tluaxey8bnlmoo3l1gwt.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://res.cloudinary.com/w635mvns/image/upload/v1785542698/myi7pnercgigghiav7rq.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://res.cloudinary.com/w635mvns/image/upload/v1785542698/myi7pnercgigghiav7rq.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["shopping", "lifestyle", "beauty"],
+  "screenshots": [],
+  "prefer_related_applications": false
+}

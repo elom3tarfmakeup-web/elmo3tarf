@@ -1,0 +1,31 @@
+import React from 'react';
+import { useApp } from '../store.jsx';
+import { useRouter } from '../router.jsx';
+import { Icon } from './icons.jsx';
+
+export default function MobileNav() {
+  const { cart, currentUser, isOwner, getFilteredNotifications } = useApp();
+  const { path, navigate } = useRouter();
+  const cartCount = cart.reduce((s, i) => s + (i.quantity || 1), 0);
+  const notifCount = getFilteredNotifications().filter(n => n.new).length;
+
+  const items = [
+    { id: isOwner ? 'dashboard' : 'home', label: isOwner ? 'لوحة' : 'الرئيسية', icon: isOwner ? 'Settings' : 'Home' },
+    { id: 'products', label: 'المنتجات', icon: 'Grid' },
+    { id: 'cart', label: 'السلة', icon: 'Cart', badge: cartCount },
+    { id: 'notifications', label: 'الإشعارات', icon: 'Bell', badge: notifCount },
+    { id: currentUser ? 'account' : 'login', label: currentUser ? 'حسابي' : 'دخول', icon: 'User' }
+  ];
+
+  return (
+    <nav className="bottom-nav">
+      {items.map(it => (
+        <button key={it.id} className={`bottom-nav-item ${path === it.id ? 'active' : ''}`} onClick={() => navigate(it.id)}>
+          {React.createElement(Icon[it.icon] || Icon.Sparkle)}
+          <span>{it.label}</span>
+          {it.badge > 0 && <span className="badge">{it.badge > 99 ? '99+' : it.badge}</span>}
+        </button>
+      ))}
+    </nav>
+  );
+}
