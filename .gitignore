@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.zip
+
+# Test/temp files
+_serve.js
+_serve.log
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
