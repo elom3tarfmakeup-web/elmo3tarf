@@ -56,18 +56,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* فلسفة الجمال */}
-      <section className="section" style={{ paddingTop: 24 }}>
-        <div className="container">
-          <div className="section-head">
-            <span className="icon-badge"><Icon.Diamond /></span>
-            <h2 className="section-title">{tr(lang, 'beautyPhilosophy')}</h2>
-            <div className="accent-line" />
-            <p className="section-sub" style={{ fontSize: 16, lineHeight: 2 }}>{tr(lang, 'philosophyText')}</p>
-          </div>
-        </div>
-      </section>
-
       {/* التصنيفات */}
       <section className="section" style={{ background: 'var(--surface-3)' }}>
         <div className="container">

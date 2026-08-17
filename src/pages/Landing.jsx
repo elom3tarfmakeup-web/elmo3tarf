@@ -90,18 +90,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ===== فلسفة الجمال ===== */}
-      <section className="section">
-        <div className="container">
-          <div className="section-head reveal">
-            <span className="icon-badge"><Icon.Diamond /></span>
-            <h2 className="section-title">{tr(lang, 'beautyPhilosophy')}</h2>
-            <div className="accent-line" />
-            <p className="section-sub" style={{ fontSize: 16.5, lineHeight: 2 }}>{tr(lang, 'philosophyText')}</p>
-          </div>
-        </div>
-      </section>
-
       {/* ===== التصنيفات ===== */}
       <section className="section" style={{ background: 'var(--surface-3)' }}>
         <div className="container">

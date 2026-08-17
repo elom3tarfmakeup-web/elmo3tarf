@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
         <hr className="footer-divider" />
         <div className="footer-bottom">
-          {tr(lang, 'rightsReserved')} 2024 © Elmo3tarf - المعترف
+          {tr(lang, 'rightsReserved')} 2026 © Elmo3tarf - المعترف
         </div>
       </div>
     </footer>

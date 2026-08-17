@@ -52,11 +52,6 @@ const DICT = {
   shipped: { ar: '🚚 تم الشحن', en: '🚚 Shipped' },
   // اللاندنج
   tagline: { ar: 'مصدر أناقتك', en: 'Your Source of Elegance' },
-  beautyPhilosophy: { ar: 'فلسفة الجمال لدينا', en: 'Our Beauty Philosophy' },
-  philosophyText: {
-    ar: 'في المعترف، نؤمن بأن الجمال ليس مجرد مظهر، بل هو شعور بالثقة والتألق من الداخل. نجمع بين أندر المكونات وأحدث التقنيات لتقديم لكِ تجربة عناية تفوق التوقعات، تغلفكِ بهالة من الفخامة في كل استخدام.',
-    en: 'At Elmo3tarf, we believe beauty is not just an appearance, but a feeling of confidence and radiance from within. We blend the rarest ingredients with the latest techniques to offer you a care experience beyond expectations, wrapped in an aura of luxury with every use.'
-  },
   curatedCategories: { ar: 'تصنيفات مختارة', en: 'Curated Categories' },
   signatureCollection: { ar: 'المجموعة المميزة', en: 'The Signature Collection' },
   browseProducts: { ar: 'تصفح المنتجات', en: 'Browse Products' },
