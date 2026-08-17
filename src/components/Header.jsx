@@ -12,13 +12,14 @@ export default function Header() {
   const cartCount = cart.reduce((s, i) => s + (i.quantity || 1), 0);
   const notifCount = getFilteredNotifications().filter(n => n.new).length;
 
-  const links = [
-    { id: 'home', label: tr(lang, 'home'), icon: 'Home' },
-    { id: 'products', label: tr(lang, 'products'), icon: 'Grid' },
-    { id: 'offers', label: tr(lang, 'offers'), icon: 'Gift' },
-    { id: 'branches', label: tr(lang, 'branches'), icon: 'MapPin' }
-  ];
-  if (isOwner) links.push({ id: 'dashboard', label: tr(lang, 'dashboard'), icon: 'Settings' });
+  const links = isOwner
+    ? [{ id: 'dashboard', label: tr(lang, 'dashboard'), icon: 'Settings' }]
+    : [
+        { id: 'home', label: tr(lang, 'home'), icon: 'Home' },
+        { id: 'products', label: tr(lang, 'products'), icon: 'Grid' },
+        { id: 'offers', label: tr(lang, 'offers'), icon: 'Gift' },
+        { id: 'branches', label: tr(lang, 'branches'), icon: 'MapPin' }
+      ];
 
   const go = (p) => {
     if (p === 'notifications') navigate('notifications');
@@ -45,7 +46,7 @@ export default function Header() {
 
         <div className="header-actions">
           <IconBtn icon="Bell" badge={notifCount} label={tr(lang, 'notifications')} onClick={() => go('notifications')} />
-          <IconBtn icon="Cart" badge={cartCount} label={tr(lang, 'cart')} onClick={() => go('cart')} />
+          {!isOwner && <IconBtn icon="Cart" badge={cartCount} label={tr(lang, 'cart')} onClick={() => go('cart')} />}
           {currentUser && (
             <button className="user-chip" onClick={() => go('account')}>
               <span className="avatar">{(currentUser.name || '؟').charAt(0)}</span>

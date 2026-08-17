@@ -12,17 +12,21 @@ export default function Sidebar() {
 
   const cartCount = cart.reduce((s, i) => s + (i.quantity || 1), 0);
 
-  const items = [
-    { id: 'home', label: tr(lang, 'home'), icon: 'Home' },
-    { id: 'products', label: tr(lang, 'products'), icon: 'Grid' },
-    { id: 'offers', label: tr(lang, 'offers'), icon: 'Gift' },
-    { id: 'branches', label: tr(lang, 'branches'), icon: 'MapPin' },
-    { id: 'orders', label: tr(lang, 'myOrders'), icon: 'Package' },
-    { id: 'addresses', label: tr(lang, 'myAddresses'), icon: 'MapPin' },
-    { id: 'notifications', label: tr(lang, 'notifications'), icon: 'Bell' },
-    { id: 'account', label: tr(lang, 'account'), icon: 'User' }
-  ];
-  if (isOwner) items.unshift({ id: 'dashboard', label: tr(lang, 'dashboard'), icon: 'Settings' });
+  const items = isOwner
+    ? [
+        { id: 'dashboard', label: tr(lang, 'dashboard'), icon: 'Settings' },
+        { id: 'notifications', label: tr(lang, 'notifications'), icon: 'Bell' }
+      ]
+    : [
+        { id: 'home', label: tr(lang, 'home'), icon: 'Home' },
+        { id: 'products', label: tr(lang, 'products'), icon: 'Grid' },
+        { id: 'offers', label: tr(lang, 'offers'), icon: 'Gift' },
+        { id: 'branches', label: tr(lang, 'branches'), icon: 'MapPin' },
+        { id: 'orders', label: tr(lang, 'myOrders'), icon: 'Package' },
+        { id: 'addresses', label: tr(lang, 'myAddresses'), icon: 'MapPin' },
+        { id: 'notifications', label: tr(lang, 'notifications'), icon: 'Bell' },
+        { id: 'account', label: tr(lang, 'account'), icon: 'User' }
+      ];
 
   const go = (p) => { navigate(p); setSidebarOpen(false); };
 

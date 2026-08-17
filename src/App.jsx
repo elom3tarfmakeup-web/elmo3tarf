@@ -161,8 +161,8 @@ function Shell() {
   if (!currentUser && !PUBLIC_PATHS.includes(path)) {
     return <><Landing /><Toast /></>;
   }
-  if (isOwner && path !== 'dashboard') {
-    return <><Landing /><Toast /></>; // المالك عمره ما يروح لصفحات العميل
+  if (isOwner && path !== 'dashboard' && path !== 'notifications') {
+    return <><Landing /><Toast /></>; // المالك يفضل في اللوحة والإشعارات بس
   }
   if (!isOwner && path === 'dashboard') {
     return <><Landing /><Toast /></>;

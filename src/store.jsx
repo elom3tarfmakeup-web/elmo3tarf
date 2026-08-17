@@ -101,8 +101,9 @@ export function AppProvider({ children }) {
   useEffect(() => { localStorage.setItem(LS.theme, theme); document.documentElement.dataset.theme = theme; }, [theme]);
 
   const showToast = useCallback((msg, isError) => {
-    setToast({ msg, isError, id: Date.now() });
-    setTimeout(() => setToast(t => (t && t.id === Date.now() ? null : t)), 2600);
+    const id = Date.now();
+    setToast({ msg, isError, id });
+    setTimeout(() => setToast(t => (t && t.id === id ? null : t)), 2600);
   }, []);
 
   // ===== حفظ في Firestore (مؤجل) =====

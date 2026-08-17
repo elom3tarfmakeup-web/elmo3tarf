@@ -9,13 +9,18 @@ export default function MobileNav() {
   const cartCount = cart.reduce((s, i) => s + (i.quantity || 1), 0);
   const notifCount = getFilteredNotifications().filter(n => n.new).length;
 
-  const items = [
-    { id: isOwner ? 'dashboard' : 'home', label: isOwner ? 'لوحة' : 'الرئيسية', icon: isOwner ? 'Settings' : 'Home' },
-    { id: 'products', label: 'المنتجات', icon: 'Grid' },
-    { id: 'cart', label: 'السلة', icon: 'Cart', badge: cartCount },
-    { id: 'notifications', label: 'الإشعارات', icon: 'Bell', badge: notifCount },
-    { id: currentUser ? 'account' : 'login', label: currentUser ? 'حسابي' : 'دخول', icon: 'User' }
-  ];
+  const items = isOwner
+    ? [
+        { id: 'dashboard', label: 'لوحة', icon: 'Settings' },
+        { id: 'notifications', label: 'الإشعارات', icon: 'Bell', badge: notifCount }
+      ]
+    : [
+        { id: 'home', label: 'الرئيسية', icon: 'Home' },
+        { id: 'products', label: 'المنتجات', icon: 'Grid' },
+        { id: 'cart', label: 'السلة', icon: 'Cart', badge: cartCount },
+        { id: 'notifications', label: 'الإشعارات', icon: 'Bell', badge: notifCount },
+        { id: currentUser ? 'account' : 'login', label: currentUser ? 'حسابي' : 'دخول', icon: 'User' }
+      ];
 
   return (
     <nav className="bottom-nav">
