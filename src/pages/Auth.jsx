@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../store.jsx';
 import { useRouter } from '../router.jsx';
+import { RoseMark } from '../components/Logo.jsx';
 
 export function Login() {
   const { login, initPush, lang } = useApp();
@@ -26,8 +27,8 @@ export function Login() {
   return (
     <div className="container">
       <form className="auth-card" onSubmit={submit}>
-        <img className="auth-logo" src="images/logo.png" alt="Elmo3tarf" />
-        <h2 className="auth-title">Elmo3tarf</h2>
+        <RoseMark size={72} style={{ display: 'block', margin: '0 auto 10px' }} />
+        <h2 className="auth-title" style={{ marginBottom: 4 }}>Elmo3tarf</h2>
         <p className="auth-sub">{lang === 'en' ? 'Welcome back — sign in' : 'مرحباً بعودتك — سجّل دخولك'}</p>
         <div className="form">
           <div className="form-field">
@@ -76,8 +77,8 @@ export function Register() {
   return (
     <div className="container">
       <form className="auth-card" onSubmit={submit}>
-        <img className="auth-logo" src="images/logo.png" alt="Elmo3tarf" />
-        <h2 className="auth-title">{lang === 'en' ? 'Create Account' : 'إنشاء حساب جديد'}</h2>
+        <RoseMark size={72} style={{ display: 'block', margin: '0 auto 10px' }} />
+        <h2 className="auth-title" style={{ marginBottom: 4 }}>{lang === 'en' ? 'Create Account' : 'إنشاء حساب جديد'}</h2>
         <p className="auth-sub">{lang === 'en' ? 'Join Elmo3tarf family' : 'انضمي لعائلة المعترف'}</p>
         <div className="form">
           <div className="form-field">

@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useApp } from '../store.jsx';
 import { useRouter } from '../router.jsx';
 import Hero3D from '../components/Hero3D.jsx';
+import Logo from '../components/Logo.jsx';
 import Footer from '../components/Footer.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import { ProductImg } from '../components/Shared.jsx';
@@ -49,8 +50,7 @@ export default function Landing() {
       <header className="header">
         <div className="container header-inner">
           <button className="logo" style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img className="logo-img" src="images/logo.png" alt="Elmo3tarf" />
-            <span className="logo-text">Elmo3tarf<small>المعترف</small></span>
+            <Logo />
           </button>
           <nav className="nav-links">
             <button className="nav-link" onClick={() => navigate('branches')}>{tr(lang, 'branches')}</button>

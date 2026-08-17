@@ -1,5 +1,5 @@
-/* Elmo3tarf React Service Worker v3.0 */
-const CACHE = 'elmo3tarf-react-v3';
+/* Elmo3tarf React Service Worker v4.0 */
+const CACHE = 'elmo3tarf-react-v4';
 const STATIC = ['/', './index.html', './images/logo.png', './manifest.json'];
 
 self.addEventListener('install', (e) => {

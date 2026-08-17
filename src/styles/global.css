@@ -129,9 +129,19 @@ a { color: inherit; text-decoration: none; }
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
 .logo { display: flex; align-items: center; gap: 10px; }
-.logo-img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--rose-gold); }
-.logo-text { font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--primary-deep); }
-.logo-text small { display: block; font-family: var(--font-arabic); font-size: 11px; font-weight: 600; color: var(--rose-gold); letter-spacing: 0.05em; }
+.el-logo { display: inline-flex; align-items: center; gap: 10px; }
+.el-logo-txt { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; }
+.el-logo-en {
+  font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--primary-deep);
+  letter-spacing: 0.015em; line-height: 1.05;
+}
+.el-logo-ar {
+  font-family: 'Aref Ruqaa', 'IBM Plex Sans Arabic', serif;
+  font-size: 18px; color: var(--rose-gold); line-height: 0.9;
+  margin-top: -6px; /* تداخل الكلمة العربية مع الإنجليزية */
+}
+.el-logo-sm .el-logo-en { font-size: 16px; }
+.el-logo-sm .el-logo-ar { font-size: 14px; margin-top: -3px; }
 .nav-links { display: none; gap: 4px; }
 .nav-link {
   padding: 10px 16px; border-radius: var(--radius-full); font-size: 14.5px; font-weight: 600;
@@ -375,7 +385,7 @@ a { color: inherit; text-decoration: none; }
 .input-error { border-color: var(--error) !important; }
 .error-text { color: var(--error); font-size: 13px; }
 .auth-card { max-width: 440px; margin: 40px auto; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 30px; box-shadow: var(--shadow); }
-.auth-logo { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 3px solid var(--rose-gold); }
+
 .auth-title { text-align: center; font-size: 26px; margin-bottom: 4px; }
 .auth-sub { text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 26px; }
 .auth-switch { text-align: center; margin-top: 20px; font-size: 14px; color: var(--text-muted); }
@@ -616,6 +626,7 @@ main.page { padding-bottom: calc(var(--bottom-nav-h) + 24px); }
 .footer ul a { font-size: 14px; color: var(--text-muted); transition: color 0.2s; font-family: var(--font-arabic); }
 .footer ul a:hover { color: var(--primary-deep); }
 .footer-brand h3 { color: var(--primary-deep); font-size: 24px; }
+.footer-brand .el-logo-ar { font-size: 23px; margin-top: 0; }
 .footer-brand p { margin-top: 10px; color: var(--text-muted); font-size: 14px; }
 .footer-divider { border: none; border-top: 1px solid var(--border); margin: 32px 0 18px; }
 .footer-bottom { display: flex; justify-content: center; font-size: 13px; color: var(--text-muted); text-align: center; }

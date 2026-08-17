@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="elmg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stopColor="#E8B07D" />
+      <stop offset="55%" stopColor="#D98E8B" />
+      <stop offset="100%" stopColor="#B76E79" />
+    </linearGradient>
+    <linearGradient id="elmg2" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stopColor="#C7795F" />
+      <stop offset="100%" stopColor="#E8B07D" />
+    </linearGradient>
+  </defs>
+  <path d="M30 100 C28 84 31 64 43 48" stroke="url(#elmg)" stroke-width="3.4" stroke-linecap="round" />
+  <path d="M33 88 C25 86 20 80 21 72 C29 73 34 80 33 88 Z" fill="url(#elmg2)" />
+  <path d="M38 74 C29 71 23 63 25 53 C33 57 40 64 38 74 Z" fill="url(#elmg2)" />
+  <path d="M43 48 C36 45 32 38 33 31 C33 26 38 23 43 25 C49 27 51 32 50 38 C49 43 47 46 43 48 Z" fill="url(#elmg)" />
+  <path d="M43 33 C41 36 41 40 43 44" stroke="#F6E7D6" stroke-width="1.5" stroke-linecap="round" />
+  <text x="66" y="87" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-weight="700" font-size="72" fill="url(#elmg)">E</text>
+</svg>

@@ -29,7 +29,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="footer-brand">
-            <h3>Elmo3tarf - المعترف</h3>
+            <h3 className="footer-brand-title">Elmo3tarf <span className="el-logo-ar">المعترف</span></h3>
             <p>وجهتك الأولى لمستحضرات التجميل الفاخرة والعناية الشخصية، دعنا نبرز جمالك الطبيعي.</p>
             <p style={{ marginTop: 8 }}>{s.phone || ''}</p>
           </div>

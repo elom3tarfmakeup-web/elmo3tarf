@@ -2,6 +2,7 @@ import React from 'react';
 import { useApp } from '../store.jsx';
 import { useRouter } from '../router.jsx';
 import { Icon, IconBtn } from './icons.jsx';
+import Logo from './Logo.jsx';
 import { tr } from '../i18n.js';
 
 export default function Header() {
@@ -31,11 +32,7 @@ export default function Header() {
     <header className="header">
       <div className="container header-inner">
         <button className="logo" onClick={() => go(currentUser ? 'home' : 'landing')} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-          <img className="logo-img" src="images/logo.png" alt="Elmo3tarf" />
-          <span className="logo-text">
-            Elmo3tarf
-            <small>المعترف</small>
-          </span>
+          <Logo />
         </button>
 
         <nav className="nav-links">

@@ -2,6 +2,7 @@ import React from 'react';
 import { useApp } from '../store.jsx';
 import { useRouter } from '../router.jsx';
 import { Icon } from './icons.jsx';
+import Logo from './Logo.jsx';
 import { tr } from '../i18n.js';
 
 export default function Sidebar() {
@@ -30,10 +31,7 @@ export default function Sidebar() {
       <div className="drawer-backdrop" onClick={() => setSidebarOpen(false)} />
       <div className="drawer">
         <div className="drawer-header">
-          <div className="flex gap-8">
-            <img className="logo-img" src="images/logo.png" alt="Elmo3tarf" style={{ width: 38, height: 38 }} />
-            <span className="logo-text" style={{ fontSize: 17 }}>Elmo3tarf</span>
-          </div>
+          <Logo size={34} sm />
           <button className="modal-close" onClick={() => setSidebarOpen(false)}><Icon.Close /></button>
         </div>
         <div className="drawer-body">
