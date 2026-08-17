@@ -142,6 +142,7 @@ function Shell() {
   }, [currentUser, isOwner, path, navigate]);
 
   // حماية الصفحات
+  const PUBLIC_PATHS = ['products', 'offers', 'branches', 'cart'];
   if (path === 'landing') {
     return <><Landing /><ThemeFab /><ImageZoom /><Toast /></>;
   }
@@ -157,7 +158,7 @@ function Shell() {
       </>
     );
   }
-  if (!currentUser) {
+  if (!currentUser && !PUBLIC_PATHS.includes(path)) {
     return <><Landing /><Toast /></>;
   }
   if (isOwner && path !== 'dashboard') {

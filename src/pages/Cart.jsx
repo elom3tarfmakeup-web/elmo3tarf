@@ -7,7 +7,7 @@ import { fmtMoney } from '../data.js';
 import { tr } from '../i18n.js';
 
 export default function Cart() {
-  const { cart, updateCartQty, removeFromCart, applyPromoCode, removePromo, appliedPromo, lang, clearCart } = useApp();
+  const { cart, updateCartQty, removeFromCart, applyPromoCode, removePromo, appliedPromo, lang, clearCart, currentUser } = useApp();
   const { navigate } = useRouter();
   const [code, setCode] = useState('');
   const [err, setErr] = useState('');
@@ -76,7 +76,7 @@ export default function Cart() {
           <div className="summary-row"><span>{tr(lang, 'shipping')}</span><span className="text-muted">{tr(lang, 'shippingLater')}</span></div>
           <div className="summary-row total"><span>{tr(lang, 'total')}</span><span>{fmtMoney(total)}</span></div>
 
-          <button className="btn btn-primary btn-block" style={{ marginTop: 18 }} onClick={() => navigate('checkout')}>{tr(lang, 'checkout')}</button>
+          <button className="btn btn-primary btn-block" style={{ marginTop: 18 }} onClick={() => navigate(currentUser ? 'checkout' : 'login')}>{tr(lang, 'checkout')}</button>
           <button className="btn btn-ghost btn-block" style={{ marginTop: 10 }} onClick={() => navigate('products')}>{tr(lang, 'continueShopping')}</button>
           <button className="btn btn-ghost btn-block" style={{ marginTop: 4, color: 'var(--error)' }} onClick={() => { clearCart(); }}>🗑️ {lang === 'en' ? 'Clear cart' : 'مسح السلة'}</button>
         </div>

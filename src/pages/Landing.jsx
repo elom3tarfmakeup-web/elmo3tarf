@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useApp } from '../store.jsx';
 import { useRouter } from '../router.jsx';
-import Hero3D from '../components/Hero3D.jsx';
 import Logo from '../components/Logo.jsx';
 import Footer from '../components/Footer.jsx';
 import ProductCard from '../components/ProductCard.jsx';
@@ -27,7 +26,7 @@ export default function Landing() {
   ].slice(0, 4);
 
   const featured = products.filter(p => p && p.image).slice(0, 3);
-  const goProducts = () => navigate(currentUser ? 'products' : 'login');
+  const goProducts = () => navigate('products');
 
   // ===== أنيميشن GSAP =====
   useEffect(() => {
@@ -55,7 +54,7 @@ export default function Landing() {
           <nav className="nav-links">
             <button className="nav-link" onClick={() => navigate('branches')}>{tr(lang, 'branches')}</button>
             <button className="nav-link" onClick={() => goProducts()}>{tr(lang, 'products')}</button>
-            <button className="nav-link" onClick={() => navigate('login')}>{tr(lang, 'contactUs')}</button>
+            <button className="nav-link" onClick={() => navigate('branches')}>{tr(lang, 'contactUs')}</button>
           </nav>
           <div className="header-actions">
             <button className="btn btn-primary btn-sm" onClick={() => navigate('login')}>{tr(lang, 'login')}</button>
@@ -67,7 +66,6 @@ export default function Landing() {
       <section className="landing-hero">
         <div className="container hero-inner">
           <div className="hero-copy">
-            <span className="hero-badge">✨ {lang === 'en' ? 'Best Seller' : 'المنتج الأكثر مبيعاً'}</span>
             <h1 className="hero-title">
               {lang === 'en' ? 'Elmo3tarf' : 'Elmo3tarf'}<br />
               <em>{tr(lang, 'tagline')}</em>
@@ -82,11 +80,6 @@ export default function Landing() {
               <button className="btn btn-secondary" onClick={() => navigate('login')}>{tr(lang, 'login')}</button>
             </div>
           </div>
-          <div className="hero-visual">
-            <div className="hero-glow" />
-            <Hero3D />
-            <span className="hero-note">💄 {lang === 'en' ? 'The Signature Lipstick' : 'روج المعترف المميز'}</span>
-          </div>
         </div>
       </section>
 
@@ -98,7 +91,7 @@ export default function Landing() {
               <h2 className="section-title" style={{ fontSize: 'clamp(24px,3.5vw,34px)' }}>{tr(lang, 'curatedCategories')}</h2>
               <p className="section-sub">{lang === 'en' ? 'Explore our specialised collections' : 'استكشفي مجموعاتنا المتخصصة'}</p>
             </div>
-            <a className="view-all-link" href="#/login">{tr(lang, 'viewAll')} <Icon.ArrowLeft /></a>
+            <a className="view-all-link" href="#/products">{tr(lang, 'viewAll')} <Icon.ArrowLeft /></a>
           </div>
           <div className="cats-grid reveal">
             {cats.map((c, i) => {
