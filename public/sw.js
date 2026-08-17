@@ -1,5 +1,5 @@
-/* Elmo3tarf React Service Worker v4.0 */
-const CACHE = 'elmo3tarf-react-v4';
+/* Elmo3tarf React Service Worker v5.0 */
+const CACHE = 'elmo3tarf-react-v5';
 const STATIC = ['/', './index.html', './images/logo.png', './manifest.json'];
 
 self.addEventListener('install', (e) => {
@@ -22,20 +22,37 @@ self.addEventListener('fetch', (e) => {
   const url = e.request.url;
   if (e.request.method !== 'GET') return;
   if (url.includes('firebase') || url.includes('googleapis') || url.includes('gstatic') || url.includes('cloudinary') || url.includes('fonts.g')) return;
-  e.respondWith(
-    caches.match(e.request).then((hit) => {
-      if (hit) return hit;
-      return fetch(e.request)
+  const isNav = e.request.mode === 'navigate';
+  if (isNav) {
+    // الصفحات الرئيسية: نجيب نسخة جديدة من السيرفر الأول عشان التحديثات تظهر فوراً
+    e.respondWith(
+      fetch(e.request)
         .then((res) => {
-          if (res && res.ok && res.type === 'basic') {
+          if (res && res.ok) {
             const copy = res.clone();
             caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
           }
           return res;
         })
-        .catch(() => caches.match('./index.html'));
-    })
-  );
+        .catch(() => caches.match(e.request).then((hit) => hit || caches.match('./index.html')))
+    );
+  } else {
+    // الملفات الثابتة: كاش الأول
+    e.respondWith(
+      caches.match(e.request).then((hit) => {
+        if (hit) return hit;
+        return fetch(e.request)
+          .then((res) => {
+            if (res && res.ok && res.type === 'basic') {
+              const copy = res.clone();
+              caches.open(CACHE).then((c) => c.put(e.request, copy)).catch(() => {});
+            }
+            return res;
+          })
+          .catch(() => caches.match('./index.html'));
+      })
+    );
+  }
 });
 
 // ===== Web Push =====

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useApp } from '../store.jsx';
+import { useRouter } from '../router.jsx';
 import { ProductImg } from './Shared.jsx';
 import { Icon } from './icons.jsx';
 import { fmtMoney } from '../data.js';
 
 export default function ProductCard({ product, notifyRequested }) {
   const { addToCart, notifyMe, setImageZoom, currentUser, lang } = useApp();
+  const { navigate } = useRouter();
   const [justAdded, setJustAdded] = useState(false);
   if (!product) return null;
 
@@ -47,7 +49,10 @@ export default function ProductCard({ product, notifyRequested }) {
         ) : (
           <button
             className={`add-btn ${justAdded ? 'added' : ''}`}
-            onClick={() => { addToCart(product.id); setJustAdded(true); setTimeout(() => setJustAdded(false), 1500); }}
+            onClick={() => {
+              if (!currentUser) { navigate('login?from=cart'); return; }
+              addToCart(product.id); setJustAdded(true); setTimeout(() => setJustAdded(false), 1500);
+            }}
           >
             <Icon.Cart /> {justAdded ? '✓ تمت الإضافة' : 'إضافة للسلة'}
           </button>

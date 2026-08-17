@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useApp } from '../store.jsx';
 import { useRouter } from '../router.jsx';
-import Logo from '../components/Logo.jsx';
+import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import { ProductImg } from '../components/Shared.jsx';
@@ -45,22 +45,8 @@ export default function Landing() {
 
   return (
     <div ref={root}>
-      {/* ===== هيدر اللاندنج ===== */}
-      <header className="header">
-        <div className="container header-inner">
-          <button className="logo" style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <Logo />
-          </button>
-          <nav className="nav-links">
-            <button className="nav-link" onClick={() => navigate('branches')}>{tr(lang, 'branches')}</button>
-            <button className="nav-link" onClick={() => goProducts()}>{tr(lang, 'products')}</button>
-            <button className="nav-link" onClick={() => navigate('branches')}>{tr(lang, 'contactUs')}</button>
-          </nav>
-          <div className="header-actions">
-            <button className="btn btn-primary btn-sm" onClick={() => navigate('login')}>{tr(lang, 'login')}</button>
-          </div>
-        </div>
-      </header>
+      {/* ===== هيدر اللاندنج (وضع الزائر) ===== */}
+      <Header />
 
       {/* ===== الهيرو ===== */}
       <section className="landing-hero">

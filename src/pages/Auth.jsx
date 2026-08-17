@@ -5,7 +5,7 @@ import { RoseMark } from '../components/Logo.jsx';
 
 export function Login() {
   const { login, initPush, lang } = useApp();
-  const { navigate } = useRouter();
+  const { navigate, params } = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
@@ -29,7 +29,11 @@ export function Login() {
       <form className="auth-card" onSubmit={submit}>
         <RoseMark size={72} style={{ display: 'block', margin: '0 auto 10px' }} />
         <h2 className="auth-title" style={{ marginBottom: 4 }}>Elmo3tarf</h2>
-        <p className="auth-sub">{lang === 'en' ? 'Welcome back — sign in' : 'مرحباً بعودتك — سجّل دخولك'}</p>
+        <p className="auth-sub">
+          {params.from === 'cart'
+            ? (lang === 'en' ? 'Sign in to place your order' : 'سجّل دخول عشان تقدر تطلب براحتك 🛍️')
+            : (lang === 'en' ? 'Sign in' : 'تسجيل الدخول')}
+        </p>
         <div className="form">
           <div className="form-field">
             <label className="form-label">البريد الإلكتروني</label>

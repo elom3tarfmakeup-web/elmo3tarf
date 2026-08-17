@@ -29,6 +29,28 @@ export default function Header() {
     setSidebarOpen(false);
   };
 
+  // ===== وضع الزائر (مش مسجل): نفس شكل اللاندنج مع كلمة تسجيل الدخول =====
+  if (!currentUser) {
+    return (
+      <header className="header">
+        <div className="container header-inner">
+          <button className="logo" onClick={() => go('landing')} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+            <Logo />
+          </button>
+          <nav className="nav-links">
+            <button className={`nav-link ${path === 'products' ? 'active' : ''}`} onClick={() => go('products')}>{tr(lang, 'products')}</button>
+            <button className={`nav-link ${path === 'offers' ? 'active' : ''}`} onClick={() => go('offers')}>{tr(lang, 'offers')}</button>
+            <button className={`nav-link ${path === 'branches' ? 'active' : ''}`} onClick={() => go('branches')}>{tr(lang, 'branches')}</button>
+            <button className="nav-link" onClick={() => go('branches')}>{tr(lang, 'contactUs')}</button>
+          </nav>
+          <div className="header-actions">
+            <button className="btn btn-primary btn-sm" onClick={() => go('login')}>{tr(lang, 'login')}</button>
+          </div>
+        </div>
+      </header>
+    );
+  }
+
   return (
     <header className="header">
       <div className="container header-inner">
